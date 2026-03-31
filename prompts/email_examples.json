@@ -1,0 +1,11 @@
+[
+    {
+        "context": "dentist, high google rating",
+        "email_1_subject": "your reviews stood out",
+        "email_1_body": "Hey {first_name},\n\nI was looking at dental practices in {city} and your {rating}-star rating across {review_count} reviews caught my eye. That kind of consistency doesn't happen by accident.\n\nI work with dental practices to turn that reputation into a steady stream of new patients through targeted digital campaigns. One practice we work with in {state} added 47 new patients in 90 days.\n\nWould you be open to a quick chat about what that could look like for {business_name}?\n\nBest,\n{sender_name}",
+        "email_2_subject": "following up, {first_name}",
+        "email_2_body": "Hey {first_name},\n\nJust wanted to circle back. I know you're busy running {business_name}.\n\nThe reason I reached out: practices with strong reviews like yours are sitting on a goldmine of social proof that most don't leverage in their marketing.\n\nWe helped a practice similar to yours in {state} go from 12 to 35 new patient calls per month. Happy to share the exact playbook.\n\nWorth a 15-minute call this week?\n\n{sender_name}",
+        "email_3_subject": "should I close your file?",
+        "email_3_body": "Hey {first_name},\n\nI've reached out a couple times and haven't heard back — totally understand if the timing isn't right.\n\nI'll close out your file on my end unless you'd like to explore how other {industry} practices in {city} are filling their schedules.\n\nEither way, wish you the best with {business_name}.\n\n{sender_name}"
+    }
+]
