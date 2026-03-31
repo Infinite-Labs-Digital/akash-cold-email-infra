@@ -1,0 +1,22 @@
+[Unit]
+Description=Cold Email Infrastructure Orchestrator
+After=network.target
+
+[Service]
+Type=simple
+User=arjunsareen
+WorkingDirectory=/home/arjunsareen/cold-email-infra
+ExecStart=/home/arjunsareen/cold-email-infra/venv/bin/python leadgen_orchestrator.py
+Restart=on-failure
+RestartSec=60
+EnvironmentFile=/home/arjunsareen/cold-email-infra/.env
+
+# Resource limits — don't starve AutoTrader
+MemoryMax=4G
+CPUQuota=150%
+
+StandardOutput=append:/home/arjunsareen/cold-email-infra/leadgen.log
+StandardError=append:/home/arjunsareen/cold-email-infra/leadgen.log
+
+[Install]
+WantedBy=multi-user.target
