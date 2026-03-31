@@ -10,8 +10,8 @@ def search_people(domain: str = None, title_keywords: list = None,
                   location: str = None, limit: int = 25,
                   campaign_id: str = None) -> list:
     """Search Apollo for people matching criteria. Returns lead dicts."""
+    headers = {"X-Api-Key": APOLLO_API_KEY, "Content-Type": "application/json"}
     params = {
-        "api_key": APOLLO_API_KEY,
         "per_page": min(limit, 100),
     }
     if domain:
@@ -23,8 +23,8 @@ def search_people(domain: str = None, title_keywords: list = None,
 
     try:
         resp = requests.post(
-            f"{APOLLO_BASE_URL}/mixed_people/search",
-            json=params, timeout=30
+            f"{APOLLO_BASE_URL}/mixed_people/api_search",
+            headers=headers, json=params, timeout=30
         )
         resp.raise_for_status()
         people = resp.json().get("people", [])

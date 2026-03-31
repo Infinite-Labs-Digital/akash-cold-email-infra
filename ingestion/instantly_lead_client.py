@@ -1,6 +1,6 @@
 import logging
 import requests
-from config import INSTANTLY_API_KEY, INSTANTLY_BASE_URL
+from config import INSTANTLY_API_KEY
 from tracking.cost_tracker import track_cost
 
 logger = logging.getLogger(__name__)
@@ -11,7 +11,8 @@ def search_leads(name: str = None, domain: str = None,
                  limit: int = 25,
                  campaign_id: str = None, lead_id: str = None) -> list:
     """Search Instantly Lead Finder. Returns lead dicts."""
-    params = {"api_key": INSTANTLY_API_KEY, "limit": limit}
+    headers = {"Authorization": f"Bearer {INSTANTLY_API_KEY}", "Content-Type": "application/json"}
+    params = {"limit": limit}
     if name:
         params["name"] = name
     if domain:
@@ -23,11 +24,11 @@ def search_leads(name: str = None, domain: str = None,
 
     try:
         resp = requests.get(
-            f"{INSTANTLY_BASE_URL}/lead/search",
-            params=params, timeout=30
+            "https://api.instantly.ai/api/v2/lead-finder/search",
+            headers=headers, params=params, timeout=30
         )
         resp.raise_for_status()
-        results = resp.json().get("data", [])
+        results = resp.json().get("items", resp.json().get("data", []))
 
         leads = []
         for item in results:
