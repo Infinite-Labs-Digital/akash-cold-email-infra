@@ -226,7 +226,7 @@ Set needs_revision=true only if any score is below 6."""
                 review_prompt,
                 EMAIL_REVIEWER_PROMPT or "You are a cold email quality reviewer.",
                 "email_review", campaign_id, lead_id,
-                max_output_tokens=800, model=GEMINI_FLASH_LITE_MODEL,
+                max_output_tokens=1500, model=GEMINI_FLASH_LITE_MODEL,
             )
         else:
             response = client.messages.create(

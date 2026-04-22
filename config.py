@@ -19,7 +19,7 @@ SONNET_MODEL = "claude-sonnet-4-20250514"
 # --- Gemini ---
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_FLASH_MODEL = "gemini-2.5-flash"
-GEMINI_FLASH_LITE_MODEL = "gemini-2.5-flash-8b"
+GEMINI_FLASH_LITE_MODEL = "gemini-2.5-flash"
 # Set GEMINI_EMAIL_GENERATION=true in .env to use Gemini Flash instead of Sonnet (~10x cheaper)
 GEMINI_EMAIL_GENERATION = os.environ.get("GEMINI_EMAIL_GENERATION", "false").lower() in ("true", "1", "yes")
 # Vertex AI (preferred — uses GCP service account, no API key needed)
